@@ -31,12 +31,12 @@ def listar_restaurantes():
     print('Listando restaurantes: \n')
 
     for restaurante in restaurantes_cadastrados:
-        print(f'--{restaurante} \n')
+        print(f'-{restaurante}')
 
     voltar_ao_menu_principal()
 
 def voltar_ao_menu_principal():
-    input('Digite uma tecla para voltar ao menu principal: ')
+    input('\nDigite uma tecla para voltar ao menu principal: ')
     main()
 
 def finalizar_app():
