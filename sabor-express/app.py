@@ -1,6 +1,10 @@
 import os
 
-restaurantes_cadastrados = ['Trash and Fresh', 'Hot in Tender']
+restaurantes_cadastrados = [{'nome':'Trash and Fresh','categoria':'Hamburgueria','ativo':True}, 
+                            {'nome':'Hot in Tender','categoria':'Frango frito','ativo':True},
+                            {'nome':'Traíras','categoria':'Churrascaria','ativo':False}
+]
+
 
 def exibir_nome_do_programa():
     print("""
@@ -31,7 +35,10 @@ def listar_restaurantes():
     print('Listando restaurantes: \n')
 
     for restaurante in restaurantes_cadastrados:
-        print(f'-{restaurante}')
+        nome_restaurante = restaurante['nome']
+        categoria = restaurante['categoria']
+        ativo = restaurante['ativo']
+        print(f'- {nome_restaurante} | {categoria} | {ativo}')
 
     voltar_ao_menu_principal()
 
