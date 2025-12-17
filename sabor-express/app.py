@@ -21,7 +21,7 @@ def exibir_opcoes():
     print('2. Listar restaurantes')
     print('3. Ativar / Desativar restaurante')
     print('4. Sair\n')
-
+    
 def cadastrar_novo_restaurante():
     os.system('cls')
     print('Cadastro de novos restaurantes \n')
@@ -40,11 +40,12 @@ def listar_restaurantes():
     os.system('cls')
     print('Listando restaurantes: \n')
 
+    print(f'{"Nome do restaurante".ljust(22)} {"Categoria".ljust(22)} {"Status\n"}')
     for restaurante in restaurantes_cadastrados:
         nome_restaurante = restaurante['nome']
         categoria = restaurante['categoria']
-        ativo = restaurante['ativo']
-        print(f'- {nome_restaurante} | {categoria} | {ativo}')
+        ativo = 'ativo' if restaurante['ativo'] else 'inativo'
+        print(f'- {nome_restaurante.ljust(20)} | {categoria.ljust(20)} | {ativo}')
 
     voltar_ao_menu_principal()
 
