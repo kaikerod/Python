@@ -1,14 +1,13 @@
 class Musicas:
-  nome = ''
-  artista = ''
-  duracao = ''
+  lista_musicas = []
+
+  def __init__(self, nome, artista, duracao):
+    self.nome = nome
+    self.artista = artista
+    self.duracao = duracao
+    Musicas.lista_musicas.append(self)
 
 musica1 = Musicas()
 musica1.nome = 'Always Then'
 musica1.artista = 'KVB'
-musica1.duracao = '3min'
-
-musica2 = Musicas()
-musica2.nome = 'CAMGIRL'
-musica2.artista = 'Crippling Alcoholism'
-musica2.duracao = '7min'
+musica1.duracao = 320
