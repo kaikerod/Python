@@ -7,7 +7,14 @@ class Musicas:
     self.duracao = duracao
     Musicas.lista_musicas.append(self)
 
-musica1 = Musicas()
-musica1.nome = 'Always Then'
-musica1.artista = 'KVB'
-musica1.duracao = 320
+  def __str__(self):
+    return f'{self.nome} | {self.artista} | {self.duracao}'
+
+  def listar_musicas():
+    for musica in Musicas.lista_musicas:
+      print(f'{musica.nome} | {musica.artista} | {musica.duracao}')
+
+musica1 = Musicas('Always Then', 'KVB', 320)
+musica2 = Musicas('MONET', 'Crippling Alcoholism', 246)
+
+Musicas.listar_musicas()
