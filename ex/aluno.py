@@ -20,7 +20,7 @@ class Aluno:
 
 
 aluno1 = Aluno('Kaike')
-aluno1.adicionar_nota(7)
-aluno1.adicionar_nota(8)
+aluno1.adicionar_nota(4)
+aluno1.adicionar_nota(4)
 print(aluno1.calcular_media())
-print(aluno1.listar_notas())
+# print(aluno1.listar_notas())
