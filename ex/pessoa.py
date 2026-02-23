@@ -10,7 +10,11 @@ class Pessoa:
   def aumentar_idade(self):
     self.idade += 1
 
+  @property
+  def saudacao(self):
+    return f'Olá, meu nome é {self.nome} e eu tenho {self.idade} anos'
+  
 pessoa1 = Pessoa('Kaike', 20, 'Dev')
 print(pessoa1)
 pessoa1.aumentar_idade()
-print(pessoa1)
+print(pessoa1.saudacao)
