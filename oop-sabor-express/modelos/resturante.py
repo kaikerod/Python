@@ -15,13 +15,13 @@ class Restaurante:
 
     @classmethod
     def listar_restaurantes(cls):
-        print(f'{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Status'}')
+        print(f"{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Avaliação'.ljust(10)} | {'Status'}")
         for restaurante in cls.restaurantes:
-            print(f'{restaurante._nome.ljust(25)} | {restaurante.categoria.ljust(25)} | {restaurante.ativo}')
+            print(f"{restaurante._nome.ljust(25)} | {restaurante.categoria.ljust(25)} | {str(restaurante.media_avaliacoes).ljust(10)} | {restaurante.ativo}")
 
     @property
-    def ativo(cls):
-        return '✅' if cls._ativo else '❌'
+    def ativo(self):
+        return '✅' if self._ativo else '❌'
 
     def alternar_estado(self):
         self._ativo = not self._ativo
