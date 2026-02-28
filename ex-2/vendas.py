@@ -12,3 +12,13 @@ class Venda:
 class AnaliseVendas:
   def __init__(self):
     self.lista_vendas = []
+
+  def adicionar_venda(self, venda):
+    self.lista_vendas.append(venda)
+
+meu_sistema = AnaliseVendas()
+v1 = Venda('Notebook', 2500.00, date.today())
+meu_sistema.adicionar_venda(v1)
+
+for i in meu_sistema.lista_vendas:
+  print(i)
