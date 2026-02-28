@@ -39,6 +39,21 @@ class AnaliseVendas:
     produto_mais_vendido = max(contagem_produtos, key=contagem_produtos.get)
     return produto_mais_vendido
 
+  def produto_mais_lucrativo(self):
+    if not self.lista_vendas:
+      return None
+    
+    lucro_produtos = {}
+    for venda in self.lista_vendas:
+      nome_produto = venda.produto
+      if nome_produto in lucro_produtos:
+        lucro_produtos[nome_produto] += venda.valor
+      else:
+        lucro_produtos[nome_produto] = venda.valor
+    
+    produto_mais_lucrativo = max(lucro_produtos, key=lucro_produtos.get)
+    return produto_mais_lucrativo
+
 meu_sistema = AnaliseVendas()
 v1 = Venda('Notebook', 2500.00, date.today())
 v2 = Venda('Smartphone', 1500.00,   date(2025, 12, 25))
