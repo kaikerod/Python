@@ -21,7 +21,7 @@ class Turma:
 
   def contar_notas_acima_da_media(self):
     media = self.calc_media()
-    notas_acima = [nota for nota in self.lista_notas if nota > media]
+    notas_acima = [nota for nota in self.lista_notas if nota > media] # List Comprehension
     return len(notas_acima)
 
 turma_python = Turma()
