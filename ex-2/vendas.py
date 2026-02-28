@@ -54,6 +54,21 @@ class AnaliseVendas:
     produto_mais_lucrativo = max(lucro_produtos, key=lucro_produtos.get)
     return produto_mais_lucrativo
 
+  def media_vendas_por_dia(self):
+    if not self.lista_vendas:
+      return None
+    
+    vendas_por_dia = {}
+    for venda in self.lista_vendas:
+      data = venda.data_venda
+      if data in vendas_por_dia:
+        vendas_por_dia[data] += venda.valor
+      else:
+        vendas_por_dia[data] = venda.valor
+    
+    media_vendas_por_dia = sum(vendas_por_dia.values()) / len(vendas_por_dia)
+    return media_vendas_por_dia
+
 meu_sistema = AnaliseVendas()
 v1 = Venda('Notebook', 2500.00, date.today())
 v2 = Venda('Smartphone', 1500.00,   date(2025, 12, 25))
