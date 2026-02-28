@@ -20,6 +20,10 @@ class AnaliseVendas:
     vendas_filtradas = [venda for venda in self.lista_vendas if venda.valor > valor_minimo]
     return vendas_filtradas
 
+  def total_vendas_periodo(self, data_inicio, data_fim):
+    total = sum(venda.valor for venda in self.lista_vendas if data_inicio <= venda.data_venda <= data_fim)
+    return total
+
 meu_sistema = AnaliseVendas()
 v1 = Venda('Notebook', 2500.00, date.today())
 v2 = Venda('Smartphone', 1500.00, date(2025, 12, 25))
