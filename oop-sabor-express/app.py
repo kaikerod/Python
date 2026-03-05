@@ -7,7 +7,8 @@ bebida_suco = Bebida('Suco de Melancia', 5, 'Pequeno')
 prato_feijoada = Prato('Feijoada', 15, 'Feijoada com arroz')
 
 def main():
-  pass
+  print(bebida_suco)
+  print(prato_feijoada)
 
 if __name__ == '__main__':
   main()
