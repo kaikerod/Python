@@ -5,4 +5,5 @@ class Veiculo:
     self._ligado = False
 
   def __str__(self):
-    return f"{self.marca} | {self.modelo} | {self._ligado}"
+    status = "ligado" if self._ligado else "desligado"
+    return f"{self.marca} | {self.modelo} | {status}"
