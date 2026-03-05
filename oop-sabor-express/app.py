@@ -9,7 +9,7 @@ restaurante_praca.adicionar_item_no_cardapio(bebida_suco)
 restaurante_praca.adicionar_item_no_cardapio(prato_feijoada)
 
 def main():
-  print(restaurante_praca)
+  restaurante_praca.exibir_cardapio
 
 if __name__ == '__main__':
   main()
