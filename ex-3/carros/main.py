@@ -7,5 +7,6 @@ minha_moto = Moto("Honda", "CBR", "Sport")
 meu_carro.ligar()
 minha_moto.ligar()
 
+print('\n')
 print(meu_carro)
 print(minha_moto)
