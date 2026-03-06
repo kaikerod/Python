@@ -6,6 +6,10 @@ class Carro(Veiculo):
     self.portas = portas
     self.cor = cor
 
+  def ligar(self):
+    self._ligado = True
+    print(f"{self.marca} {self.modelo} está ligado!")
+
   def __str__(self):
     status = "ligado" if self._ligado else "desligado"
     return f"{self.marca} | {self.modelo} | Portas: {self.portas} | Status: {status} | Cor: {self.cor}"
