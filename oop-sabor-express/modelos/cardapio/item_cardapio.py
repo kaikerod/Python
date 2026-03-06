@@ -14,5 +14,5 @@ class ItemCardapio(ABC):
     return self._preco
 
   @abstractmethod
-  def aplicar_desconto(self, desconto):
+  def aplicar_desconto(self):
     pass
