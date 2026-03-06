@@ -14,10 +14,12 @@ if response.status_code == 200:
 
     dados_restaurante[nome_do_restaurante].append({
       'item': item['Item'],
-      'value': item['Value'],
-      'description': item['Description']
+      'price': item['price'],
+      'description': item['description']
     })
 
 
 else:
   print(f'Erro ao fazer a requisição: {response.status_code}')
+
+print(dados_restaurante['McDonald’s'])
