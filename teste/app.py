@@ -22,4 +22,7 @@ if response.status_code == 200:
 else:
   print(f'Erro ao fazer a requisição: {response.status_code}')
 
-print(dados_restaurante['McDonald’s'])
+for nome_do_restaurante, dados in dados_restaurante.items():
+  print(nome_do_restaurante)
+  for item in dados:
+    print(item)
