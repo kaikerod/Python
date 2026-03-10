@@ -21,7 +21,7 @@ def get_restaurantes(restaurante: str = Query(None)):
     dados_restaurante = []
     for item in dados_json:
       if item['Company'] == restaurante:
-        dados_restaurante[nome_do_restaurante].append({
+        dados_restaurante.append({
           'item': item['Item'],
           'price': item['price'],
           'description': item['description']
