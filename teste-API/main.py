@@ -5,10 +5,10 @@ app = FastAPI()
 
 @app.get('/api/hello')
 def hello_world():
-  return {'Hello': 'World'}
   '''
   Endpoint para retornar uma mensagem de boas-vindas
   '''
+  return {'Hello': 'World'}
 
 @app.get('/api/restaurantes/')
 def get_restaurantes(restaurante: str = Query(None)):
