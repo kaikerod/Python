@@ -23,6 +23,6 @@ else:
   print(f'Erro ao fazer a requisição: {response.status_code}')
 
 for nome_do_restaurante, dados in dados_restaurante.items():
-  print(nome_do_restaurante)
-  for item in dados:
-    print(item)
+  nome_do_arquivo = f'{nome_do_restaurante}.json'
+  with open(nome_do_arquivo, 'w') as arquivo:
+    json.dump(dados, arquivo, indent=2, ensure_ascii=False)
