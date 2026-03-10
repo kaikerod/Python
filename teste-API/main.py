@@ -26,6 +26,7 @@ def get_restaurantes(restaurante: str = Query(None)):
           'price': item['price'],
           'description': item['description']
       })
+    return {'Restaurante': restaurante, 'Dados': dados_restaurante}
 
   else:
-    print(f'Erro ao fazer a requisição: {response.status_code}')
+    return {'Erro': f'Erro ao fazer a requisição: {response.status_code} - {response.text}'}
