@@ -1,5 +1,5 @@
 # escrever arquivo com a função open
-# open(caminho_do_arquivo, modo)
+# open(caminho_do_arquivo/nome_do_arquivo, modo)
 # modos: 'w' (write), 'r' (read)
 with open("ex-2/arquivo.txt", "w") as f:
   f.write("Hello World\n")
