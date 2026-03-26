@@ -1,11 +1,7 @@
 import sqlite3
-import os
 
 # cria conexão com o banco de dados/cria o arquivo escola.db se não existir
-# conn = sqlite3.connect("escola.db") | forma antiga
-# forma para criar o arquivo escola.db na mesma pasta do script
-db_path = os.path.join(os.path.dirname(__file__), "escola.db")
-conn = sqlite3.connect(db_path)
+conn = sqlite3.connect("escola.db")
 
 # cria cursor para executar comandos sql
 cursor = conn.cursor()
@@ -30,7 +26,7 @@ CREATE TABLE IF NOT EXISTS disciplinas (
 )
 """)
 
-# confirma as alterações
+#confirma as alterações
 conn.commit()
-# fecha a conexão
+#fecha a conexão
 conn.close()
