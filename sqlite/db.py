@@ -70,3 +70,15 @@ def criar_matricula(nome_disciplina, estudante_id):
   )
   conn.commit()
   conn.close()
+
+def listar_matriculas():
+  conn = conectar_db()
+  cursor = conn.cursor()
+  cursor.execute(
+    """
+      SELECT * FROM matriculas
+    """
+  )
+  matriculas = cursor.fetchall()
+  conn.close()
+  return matriculas
