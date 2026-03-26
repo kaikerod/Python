@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect("escola.db")
+conn = sqlite3.connect("escola_1.db")
 cursor = conn.cursor()
 
 # atualiza os dados da tabela estudantes

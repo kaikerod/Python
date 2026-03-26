@@ -1,7 +1,7 @@
 import sqlite3
 
 # cria conexão com o banco de dados/cria o arquivo escola.db se não existir
-conn = sqlite3.connect("escola.db")
+conn = sqlite3.connect("escola_1.db")
 
 # cria cursor para executar comandos sql
 cursor = conn.cursor()
