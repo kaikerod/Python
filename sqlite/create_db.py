@@ -1,12 +1,16 @@
 import sqlite3
+import os
 
-#cria conexão com o banco de dados/cria o arquivo escola.db se não existir
-conn = sqlite3.connect("escola.db")
+# cria conexão com o banco de dados/cria o arquivo escola.db se não existir
+# conn = sqlite3.connect("escola.db") | forma antiga
+# forma para criar o arquivo escola.db na mesma pasta do script
+db_path = os.path.join(os.path.dirname(__file__), "escola.db")
+conn = sqlite3.connect(db_path)
 
-#cria cursor para executar comandos sql
+# cria cursor para executar comandos sql
 cursor = conn.cursor()
 
-#cria tabela alunos
+# cria tabela alunos
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS estudantes (
     id INTEGER PRIMARY KEY,
@@ -15,8 +19,8 @@ CREATE TABLE IF NOT EXISTS estudantes (
 )
 """)
 
-#cria tabela disciplinas
-#FOREIGN KEY (estudante_id) REFERENCES estudantes(id) -> cria relação entre as tabelas
+# cria tabela disciplinas
+# FOREIGN KEY (estudante_id) REFERENCES estudantes(id) -> cria relação entre as tabelas
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS disciplinas (
     id INTEGER PRIMARY KEY,
@@ -25,3 +29,8 @@ CREATE TABLE IF NOT EXISTS disciplinas (
     FOREIGN KEY (estudante_id) REFERENCES estudantes(id)
 )
 """)
+
+# confirma as alterações
+conn.commit()
+# fecha a conexão
+conn.close()
