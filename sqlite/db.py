@@ -18,12 +18,12 @@ def criar_tabela_estudantes():
   conn.commit()
   conn.close()
 
-def criar_tabela_matricula():
+def criar_tabela_matriculas():
   conn = conectar_db()
   cursor = conn.cursor()
   cursor.execute(
     """
-    CREATE TABLE IF NOT EXISTS matricula (
+    CREATE TABLE IF NOT EXISTS matriculas (
       id INTEGER PRIMARY KEY,
       nome_disciplina TEXT,
       estudante_id INTEGER,
