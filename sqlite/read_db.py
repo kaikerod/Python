@@ -18,6 +18,13 @@ cursor.execute(
   """
 )
 
+# seleciona o elemento com id = 1 da tabela estudantes
+# cursor.execute(
+#   """
+#     SELECT * FROM estudantes WHERE id = 1
+#   """
+# )
+
 conn.commit()
 
 # armazena todos os dados da tabela estudantes na variável estudantes
