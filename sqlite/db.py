@@ -58,15 +58,15 @@ def listar_estudantes():
   conn.close()
   return estudantes
 
-def criar_matricula(nome_disciplina, estudante_id):
+def criar_matricula(estudante_id, nome_disciplina):
   conn = conectar_db()
   cursor = conn.cursor()
   cursor.execute(
     """
-    INSERT INTO matriculas (nome_disciplina, estudante_id) 
+    INSERT INTO matriculas (estudante_id, nome_disciplina) 
     VALUES (?, ?)
     """, 
-    (nome_disciplina, estudante_id)
+    (estudante_id, nome_disciplina)
   )
   conn.commit()
   conn.close()
