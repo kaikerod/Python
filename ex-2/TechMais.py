@@ -1,7 +1,7 @@
 import sqlite3
 
 def conectar_db():
-  conn = sqlite3.connect("loja.db")
+  conn = sqlite3.connect("techmais.db")
   return conn
 
 def criar_tabela_produtos():
