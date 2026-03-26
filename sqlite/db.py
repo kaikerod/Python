@@ -32,3 +32,16 @@ def criar_tabela_matricula():
     """)
   conn.commit()
   conn.close()
+
+def inserir_estudante(nome, idade):
+  conn = conectar_db()
+  cursor = conn.cursor()
+  cursor.execute(
+    """
+    INSERT INTO estudantes (nome, idade) 
+    VALUES (?, ?)
+    """, 
+    (nome, idade)
+  )
+  conn.commit()
+  conn.close()
