@@ -9,7 +9,7 @@ def criar_tabela_produtos():
   cursor = conn.cursor()
   cursor.execute(
     """
-    CREATE TABLE IF NOT EXISTS produtos (
+    CREATE TABLE IF NOT EXISTS tabela_produtos (
       id INTEGER PRIMARY KEY,
       nome TEXT,
       preco REAL
@@ -24,7 +24,7 @@ def inserir_produto():
   cursor = conn.cursor()
   cursor.execute(
     """
-    INSERT INTO produtos (nome, preco) 
+    INSERT INTO tabela_produtos (nome, preco) 
     VALUES (?, ?)
     """
   )
@@ -36,7 +36,7 @@ def listar_produtos_cadastrados():
   cursor = conn.cursor()
   cursor.execute(
     """
-    SELECT * FROM produtos
+    SELECT * FROM tabela_produtos
     """
   )
   produtos = cursor.fetchall()
