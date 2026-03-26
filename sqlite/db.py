@@ -45,3 +45,15 @@ def inserir_estudante(nome, idade):
   )
   conn.commit()
   conn.close()
+
+def listar_estudantes():
+  conn = conectar_db()
+  cursor = conn.cursor()
+  cursor.execute(
+    """
+    SELECT * FROM estudantes
+    """
+  )
+  estudantes = cursor.fetchall()
+  conn.close()
+  return estudantes
