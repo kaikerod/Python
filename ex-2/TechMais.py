@@ -19,14 +19,15 @@ def criar_tabela_produtos():
   conn.commit()
   conn.close()
 
-def inserir_produto():
+def inserir_produto(nome, preco):
   conn = conectar_db()
   cursor = conn.cursor()
   cursor.execute(
     """
     INSERT INTO tabela_produtos (nome, preco) 
     VALUES (?, ?)
-    """
+    """,
+    (nome, preco)
   )
   conn.commit()
   conn.close()
