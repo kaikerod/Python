@@ -57,3 +57,16 @@ def listar_estudantes():
   estudantes = cursor.fetchall()
   conn.close()
   return estudantes
+
+def criar_matricula(nome_disciplina, estudante_id):
+  conn = conectar_db()
+  cursor = conn.cursor()
+  cursor.execute(
+    """
+    INSERT INTO matriculas (nome_disciplina, estudante_id) 
+    VALUES (?, ?)
+    """, 
+    (nome_disciplina, estudante_id)
+  )
+  conn.commit()
+  conn.close()
