@@ -63,7 +63,7 @@ def criar_matricula(estudante_id, nome_disciplina):
   cursor = conn.cursor()
   cursor.execute(
     """
-    INSERT INTO matriculas (estudante_id, nome_disciplina) 
+    INSERT INTO matriculas (estudante_id, nome_disciplina)
     VALUES (?, ?)
     """, 
     (estudante_id, nome_disciplina)
