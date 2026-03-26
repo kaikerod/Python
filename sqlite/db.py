@@ -74,9 +74,13 @@ def criar_matricula(estudante_id, nome_disciplina):
 def listar_matriculas():
   conn = conectar_db()
   cursor = conn.cursor()
+  
+  # seleciona os dados das tabelas matriculas e estudantes
+  # JOIN estudantes ON matriculas.estudante_id = estudantes.id -> une as tabelas
   cursor.execute(
     """
-      SELECT * FROM matriculas
+      SELECT matriculas.id, estudantes.nome, matriculas.nome_disciplina FROM matriculas
+      JOIN estudantes ON matriculas.estudante_id = estudantes.id
     """
   )
   matriculas = cursor.fetchall()
