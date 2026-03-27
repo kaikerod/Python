@@ -21,3 +21,11 @@ class Perfil(Base):
     estudante = relationship("Estudante", back_populates="perfil")
 # Unique=True indica que o perfil só pode ter um estudante
 # Back_populates indica que o relacionamento é bidirecional entre estudante e perfil
+
+class Professor(Base):
+    __tablename__ = "professores"
+    id = Column(Integer, primary_key=True, index=True)
+    nome = Column(String)
+    especialidade = Column(String)
+    cursos = relationship("Curso", back_populates="professor", cascade="all, delete-orphan")
+# Cascade="all, delete-orphan" indica que o relacionamento é de um para muitos, se o professor for deletado, os cursos também serão deletados
