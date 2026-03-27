@@ -38,3 +38,17 @@ class Professor(BaseModel):
 class ProfessorCreate(BaseModel):
     nome: str
     especialidade: str
+
+class Curso(BaseModel):
+    id: int
+    nome: str
+    descricao: str
+    professor_id: int
+
+    class Config:
+        from_attributes = True
+
+class CursoCreate(BaseModel):
+    nome: str
+    descricao: str
+    professor_id: int
