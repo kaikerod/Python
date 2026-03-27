@@ -1,0 +1,1 @@
+# Define as entidades da aplicação, ex: produtos, clientes, etc.

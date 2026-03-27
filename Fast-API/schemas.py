@@ -1,0 +1,1 @@
+# Valida os dados que chegam na API
