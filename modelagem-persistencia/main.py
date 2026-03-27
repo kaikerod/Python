@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 import models, schemas
 from database import engine, SessionLocal
 from typing import List
-from sqlalchemy import joinedload
+from sqlalchemy.orm import joinedload
 
 app = FastAPI() 
 
@@ -28,3 +28,12 @@ def criar_estudante(estudante: schemas.EstudanteCreate, db: Session = Depends(ge
 def listar_estudantes(db: Session = Depends(get_db)):
     estudantes = db.query(models.Estudante).options(joinedload(models.Estudante.perfil)).all()
     return estudantes
+
+@app.delete("/estudantes/{id}", response_model=schemas.Estudante)
+def deletar_estudante(id: int, db: Session = Depends(get_db)):
+    estudante = db.query(models.Estudante).filter(models.Estudante.id == id).first()
+    if not estudante:
+        raise HTTPException(status_code=404, detail="Estudante não encontrado")
+    db.delete(estudante)
+    db.commit()
+    return estudante

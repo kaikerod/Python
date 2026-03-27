@@ -1,18 +1,6 @@
 from typing import Optional
 from pydantic import BaseModel
 
-class Estudante(BaseModel):
-    id: int
-    nome: str
-    perfil: Optional[Perfil] = None
-
-    class Config:
-        from_attributes = True
-
-class EstudanteCreate(BaseModel):
-    id: int
-    nome: str
-    perfil: PerfilCreate
 
 class Perfil(BaseModel):
     id: int
@@ -25,3 +13,16 @@ class Perfil(BaseModel):
 class PerfilCreate(BaseModel):
     idade: int
     endereco: str
+
+class Estudante(BaseModel):
+    id: int
+    nome: str
+    perfil: Optional[Perfil] = None
+
+    class Config:
+        from_attributes = True
+
+class EstudanteCreate(BaseModel):
+    id: int
+    nome: str
+    perfil: PerfilCreate
