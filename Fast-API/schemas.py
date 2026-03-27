@@ -11,7 +11,7 @@ class EstudanteCreate(EstudanteBase):
   pass
 
 # Herda de EstudanteBase e adiciona o campo id
-class Estudante(EstudanteBase):
+class EstudanteResponse(EstudanteBase):
   id: int
 
   class Config:
