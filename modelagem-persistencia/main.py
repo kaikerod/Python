@@ -59,3 +59,32 @@ def deletar_professor(id: int, db: Session = Depends(get_db)):
     db.delete(professor)
     db.commit()
     return professor
+
+@app.post("/cursos", response_model=schemas.Curso)
+def criar_curso(curso: schemas.CursoCreate, db: Session = Depends(get_db)):
+    db_curso = models.Curso(nome=curso.nome, descricao=curso.descricao, professor_id=curso.professor_id)
+    db.add(db_curso)
+    db.commit()
+    db.refresh(db_curso)
+    return db_curso
+
+@app.get("/cursos", response_model=List[schemas.Curso])
+def listar_cursos(db: Session = Depends(get_db)):
+    cursos = db.query(models.Curso).all()
+    return cursos
+
+@app.get("/cursos/{id}", response_model=schemas.Curso)
+def listar_curso(id: int, db: Session = Depends(get_db)):
+    curso = db.query(models.Curso).filter(models.Curso.id == id).first()
+    if not curso:
+        raise HTTPException(status_code=404, detail="Curso não encontrado")
+    return curso
+
+@app.delete("/cursos/{id}", response_model=schemas.Curso)
+def deletar_curso(id: int, db: Session = Depends(get_db)):
+    curso = db.query(models.Curso).filter(models.Curso.id == id).first()
+    if not curso:
+        raise HTTPException(status_code=404, detail="Curso não encontrado")
+    db.delete(curso)
+    db.commit()
+    return curso
