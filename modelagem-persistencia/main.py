@@ -23,3 +23,8 @@ def criar_estudante(estudante: schemas.EstudanteCreate, db: Session = Depends(ge
     db.commit()
     db.refresh(db_estudante)
     return db_estudante
+
+@app.get("/estudantes", response_model=List[schemas.Estudante])
+def ler_estudantes(db: Session = Depends(get_db)):
+    estudantes = db.query(models.Estudante).options(joinedload(models.Estudante.perfil)).all()
+    return estudantes
