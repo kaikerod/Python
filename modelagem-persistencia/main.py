@@ -37,3 +37,25 @@ def deletar_estudante(id: int, db: Session = Depends(get_db)):
     db.delete(estudante)
     db.commit()
     return estudante
+
+@app.post("/professores", response_model=schemas.Professor)
+def criar_professor(professor: schemas.ProfessorCreate, db: Session = Depends(get_db)):
+    db_professor = models.Professor(nome=professor.nome, especialidade=professor.especialidade)
+    db.add(db_professor)
+    db.commit()
+    db.refresh(db_professor)
+    return db_professor
+
+@app.get("/professores", response_model=List[schemas.Professor])
+def listar_professores(db: Session = Depends(get_db)):
+    professores = db.query(models.Professor).all()
+    return professores
+
+@app.delete("/professores/{id}", response_model=schemas.Professor)
+def deletar_professor(id: int, db: Session = Depends(get_db)):
+    professor = db.query(models.Professor).filter(models.Professor.id == id).first()
+    if not professor:
+        raise HTTPException(status_code=404, detail="Professor não encontrado")
+    db.delete(professor)
+    db.commit()
+    return professor
