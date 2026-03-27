@@ -74,4 +74,3 @@ def ler_estudante(estudante_id: int, db: Session = Depends(get_db)):
   if not estudante:
     raise HTTPException(status_code=404, detail="Estudante não encontrado")
   return estudante
-
