@@ -29,3 +29,9 @@ class MatriculaResponse(MatriculaBase):
 
   class Config:
     from_attributes = True
+
+class ListarEstudanteId(BaseModel):
+  id: int
+
+  class Config:
+    from_attributes = True
