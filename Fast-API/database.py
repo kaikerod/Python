@@ -2,8 +2,7 @@
 # sqlalchemy - Cria a conexão com o banco de dados SQL com Python
 
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import sessionmaker
+from sqlalchemy.orm import declarative_base, sessionmaker
 
 # Conexão com o banco de dados PostgreSQL | define usuário, senha, host e nome do banco
 #                             usuário/  senha/  host/     nome do banco
