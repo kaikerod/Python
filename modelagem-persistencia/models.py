@@ -27,4 +27,12 @@ class Professor(Base):
     id = Column(Integer, primary_key=True, index=True)
     nome = Column(String)
     especialidade = Column(String)
+
+class Curso(Base):
+    __tablename__ = "cursos"
+    id = Column(Integer, primary_key=True, index=True)
+    nome = Column(String)
+    descricao = Column(String)
+    professor_id = Column(Integer, ForeignKey("professores.id"))
+    professor = relationship("Professor", back_populates="cursos")
 # Cascade="all, delete-orphan" indica que o relacionamento é de um para muitos, se o professor for deletado, os cursos também serão deletados
