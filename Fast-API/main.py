@@ -36,3 +36,11 @@ def criar_estudante(estudante: schemas.EstudanteCreate, db: Session = Depends(ge
 def ler_estudantes(db: Session = Depends(get_db)): # Retorna uma sessão do banco de dados
   estudantes = db.query(models.Estudante).all() # Busca todos os estudantes
   return estudantes # Retorna todos os estudantes
+
+@app.post('/matriculas', response_model=schemas.MatriculaResponse)
+def criar_materia(matricula: schemas.MatriculaCreate, db: Session = Depends(get_db)):
+  db_matricula = models.Matricula(**matricula.model_dump())
+  db.add(db_matricula)
+  db.commit()
+  db.refresh(db_matricula)
+  return db_matricula
