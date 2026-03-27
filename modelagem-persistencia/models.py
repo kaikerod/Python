@@ -27,6 +27,7 @@ class Professor(Base):
     id = Column(Integer, primary_key=True, index=True)
     nome = Column(String)
     especialidade = Column(String)
+    cursos = relationship("Curso", back_populates="professor")
 
 class Curso(Base):
     __tablename__ = "cursos"
