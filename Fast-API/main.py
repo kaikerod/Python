@@ -29,3 +29,10 @@ def criar_estudante(estudante: schemas.EstudanteCreate, db: Session = Depends(ge
   db.commit() # Confirma a transação
   db.refresh(db_estudante) # Atualiza o objeto estudante com os dados do banco de dados
   return db_estudante # Retorna o objeto estudante
+
+# Cria uma rota com método GET para buscar estudantes
+# Retorna uma lista de estudantes
+@app.get('/estudantes', response_model=List[schemas.EstudanteResponse])
+def ler_estudantes(db: Session = Depends(get_db)): # Retorna uma sessão do banco de dados
+  estudantes = db.query(models.Estudante).all() # Busca todos os estudantes
+  return estudantes # Retorna todos os estudantes
