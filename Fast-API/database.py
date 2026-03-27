@@ -1,4 +1,5 @@
 # Arquivo para criar a conexão com o banco de dados
+# sqlalchemy - Cria a conexão com o banco de dados SQL com Python
 
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
