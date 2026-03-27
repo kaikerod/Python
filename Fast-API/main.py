@@ -49,3 +49,12 @@ def criar_matricula(matricula: schemas.MatriculaCreate, db: Session = Depends(ge
 def ler_matriculas(db: Session = Depends(get_db)):
   matriculas = db.query(models.Matricula).all()
   return matriculas
+
+@app.delete('/estudantes/{estudante_id}') # Deleta um estudante pelo id
+def deletar_estudante(estudante_id: int, db: Session = Depends(get_db)): # Recebe o id do estudante e uma sessão do banco de dados
+  db_estudante = db.query(models.Estudante).filter(models.Estudante.id == estudante_id).first() # Busca o estudante pelo id
+  if not db_estudante: # Se o estudante não for encontrado
+    raise HTTPException(status_code=404, detail="Estudante não encontrado") # Retorna um erro 404
+  db.delete(db_estudante) # Deleta o estudante
+  db.commit() # Confirma a transação
+  return {"message": "Estudante deletado com sucesso"}
