@@ -38,9 +38,14 @@ def ler_estudantes(db: Session = Depends(get_db)): # Retorna uma sessão do banc
   return estudantes # Retorna todos os estudantes
 
 @app.post('/matriculas', response_model=schemas.MatriculaResponse)
-def criar_materia(matricula: schemas.MatriculaCreate, db: Session = Depends(get_db)):
+def criar_matricula(matricula: schemas.MatriculaCreate, db: Session = Depends(get_db)):
   db_matricula = models.Matricula(**matricula.model_dump())
   db.add(db_matricula)
   db.commit()
   db.refresh(db_matricula)
   return db_matricula
+
+@app.get('/matriculas', response_model=List[schemas.MatriculaResponse])
+def ler_matriculas(db: Session = Depends(get_db)):
+  matriculas = db.query(models.Matricula).all()
+  return matriculas
