@@ -26,3 +26,15 @@ class EstudanteCreate(BaseModel):
     id: int
     nome: str
     perfil: PerfilCreate
+
+class Professor(BaseModel):
+    id: int
+    nome: str
+    especialidade: str
+
+    class Config:
+        from_attributes = True
+
+class ProfessorCreate(BaseModel):
+    nome: str
+    especialidade: str
