@@ -1,7 +1,7 @@
 import re
 
-texto = input("Digite o nome do produto: ")
+produto = input("Digite o nome do produto: ")
 
-padrao = r"\w+"
+padrao_padronizado = produto.strip().lower()
 
-print(re.findall(padrao, texto))
+print(padrao_padronizado)
