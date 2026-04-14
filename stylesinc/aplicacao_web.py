@@ -11,9 +11,12 @@ def aplicacao_web(environ, start_response): # environ: dicionário com informaç
         <title>Document</title>
     </head>
     <body>
-  
+        <h1>
+            Olá mundo
+        </h1>
     </body>
     </html>
     '''
+    return[html]
 
 make_server('', 5000, 'aplicacao_web') # host (local), porta, aplicação
