@@ -1,8 +1,8 @@
 import re
 
-texto = input('Digite o texto: ')
+texto = input("Digite o texto a ser revisado: ")  
+palavra_antiga = input("Qual palavra deseja substituir? ")  
+palavra_nova = input("Qual a nova palavra? ")  
 
-if re.search(r'\d{2}/\d{2}/\d{4}', texto):
-    print('Data válida')
-else:
-    print('Data inválida')
+nova_frase = re.sub(rf'\b{palavra_antiga}\b', palavra_nova, texto)
+print(nova_frase)
