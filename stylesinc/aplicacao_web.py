@@ -1,6 +1,4 @@
 from wsgiref.simple_server import make_server
-
-
 import os
 
 def aplicacao_web(environ, start_response):  # environ: dicionário com informações da requisição; start_response: função que envia a resposta
