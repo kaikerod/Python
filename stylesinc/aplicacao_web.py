@@ -3,6 +3,9 @@ from wsgiref.simple_server import make_server
 
 def aplicacao_web(environ, start_response):  # environ: dicionário com informações da requisição; start_response: função que envia a resposta
     start_response('200 OK', [('Content-Type', 'text/html;charset=utf-8')])
+    with open('index.html', 'r', encoding='utf-8') as file:
+        html = file.read()
+    
     html = '''
     <!DOCTYPE html>
     <html lang="pt-BR">
