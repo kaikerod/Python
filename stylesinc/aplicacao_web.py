@@ -5,6 +5,7 @@ def aplicacao_web(environ, start_response):  # environ: dicion√°rio com informa√
     start_response('200 OK', [('Content-Type', 'text/html;charset=utf-8')])
     with open('index.html', 'r', encoding='utf-8') as file:
         html = file.read()
+    return [html.encode('utf-8')]
     
     html = '''
     <!DOCTYPE html>
